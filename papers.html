@@ -97,7 +97,7 @@
 
           <!-- <h1>ACM CHI 2025 Papers explorer</h1> -->
           <div id="navigation"></div>
-          <h1>Choose your papers</h1>
+          <h1>Select papers</h1>
 
           <div class="row">
             <div class="col-lg-8 col-md-12"></div>
@@ -105,94 +105,110 @@
 
           <div class="row">
             <div class="col-md-7" id="mainSection">
-              <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <button
-                    class="nav-link active"
-                    id="home-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#home-tab-pane"
-                    type="button"
-                    role="tab"
-                    aria-controls="home-tab-pane"
-                    aria-selected="true"
+              <div class="accordion" id="accordionExample">
+                <!-- ****** Step1 ****** -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      <h2>
+                        Filter by tracks<span id="spanTracksSelected"></span>,
+                        authors <span id="spanAuthorsSelected"></span> and
+                        affiliations <span id="spanAffiliationsSelected"></span>
+                      </h2>
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseOne"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample"
                   >
-                    By semantic similarity
-                  </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button
-                    class="nav-link"
-                    id="profile-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#profile-tab-pane"
-                    type="button"
-                    role="tab"
-                    aria-controls="profile-tab-pane"
-                    aria-selected="false"
-                  >
-                    By track, authors and affiliations
-                  </button>
-                </li>
-              </ul>
-              <div class="tab-content" id="myTabContent">
-                <div
-                  class="tab-pane fade show active"
-                  id="home-tab-pane"
-                  role="tabpanel"
-                  aria-labelledby="home-tab"
-                  tabindex="0"
-                >
-                  <div id="observablehq-drChart-702d78f5">Loading... ⏳</div>
-                  <div id="observablehq-queryEle-702d78f5"></div>
-                  <div id="observablehq-viewof-scoreSelection-702d78f5"></div>
-                  <div id="observablehq-addRemoveSearch-702d78f5"></div>
-                  <div id="observablehq-viewof-searchTable-702d78f5"></div>
+                    <div class="accordion-body">
+                      <div id="observablehq-tracksSelector-702d78f5"></div>
+                      <div id="observablehq-authorsSelector-702d78f5"></div>
+                      <div
+                        id="observablehq-affiliationsSelector-702d78f5"
+                      ></div>
+                      <div
+                        id="observablehq-facetedSearchSelector-702d78f5"
+                      ></div>
+                      <div id="observablehq-addRemoveFaceted-702d78f5"></div>
+                    </div>
+                  </div>
                 </div>
 
-                <!-- By track, authors and affiliations -->
-                <div
-                  class="tab-pane fade"
-                  id="profile-tab-pane"
-                  role="tabpanel"
-                  aria-labelledby="profile-tab"
-                  tabindex="0"
-                >
-                  <div id="observablehq-tracksSelector-702d78f5"></div>
-                  <div id="observablehq-authorsSelector-702d78f5"></div>
-                  <div id="observablehq-affiliationsSelector-702d78f5"></div>
-                  <div id="observablehq-facetedSearchSelector-702d78f5"></div>
-                  <div id="observablehq-addRemoveFaceted-702d78f5"></div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
+                      <h2>Filter by semantic similarity</h2>
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseTwo"
+                    class="accordion-collapse collapse show"
+                    aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-body">
+                      <div id="observablehq-queryEle-702d78f5"></div>
+                      <div class="mt-3">
+                        <div>Papers by similarity</div>
+                        <div id="observablehq-drChart-702d78f5">
+                          Loading... ⏳
+                        </div>
+                      </div>
+                      <div class="mt-3">
+                        <label
+                          >Select papers within this score range
+
+                          <div
+                            id="observablehq-viewof-scoreSelection-702d78f5"
+                          ></div>
+                        </label>
+                        <div id="observablehq-addRemoveSearch-702d78f5"></div>
+                      </div>
+                      <div class="mt-3">
+                        <div>Papers ranked by your search</div>
+                        <div
+                          id="observablehq-viewof-searchTable-702d78f5"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              <!-- <div class="row">
-                <div class="col-4">
-                  <div id="observablehq-viewof-colorBy-702d78f5"></div>
-                </div>
-                <div class="col-4">
-                  <div id="observablehq-viewof-colorScheme-702d78f5"></div>
-                </div>
-                <div class="col-4">
-                  <div id="observablehq-viewof-includeKeywords-702d78f5"></div>
-                </div>
-              </div> -->
             </div>
             <!-- chart -->
 
             <!-- papers -->
             <div class="col-md-5" style="font-size: 0.6rem">
               <div class="border-bottom p-2 m-2">
-                <!-- <div>
-                  Top
-                  <span
-                    id="observablehq-viewof-maxPapersSpinner-702d78f5"
-                  ></span>
-                  papers sorted by similarity score
-                </div> -->
+                <h2>Your paper selection <span id="paperSelectionCount"></span> </h2>
+                <div id="observablehq-whatToAttend-702d78f5">
+                  Loading... ⏳
+                </div>
                 <div id="observablehq-viewof-myPapers-702d78f5">
                   Loading... ⏳
                 </div>
+                <div id="observablehq-papersListElement-702d78f5">
+                  Loading... ⏳
+                </div>
+
+
               </div>
             </div>
             <!-- /papers -->
