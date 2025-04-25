@@ -22,7 +22,9 @@ export const notebook = new Runtime().module(define, (name) => {
     "onScoreUpdate",
     "maxRSelector",
     "whatToAttend",
-    "papersListElement"
+    "papersListElement",
+    "viewof sortBy",
+    "viewof myPapersSearched",
   ];
 
   if (cells.includes(name)) return renderCellIfelementExists(name);
@@ -38,7 +40,7 @@ async function onResize() {
   const maxR = await notebook.value("maxRSelector");
   maxR.value = 50;
   maxR.dispatchEvent(new Event("input"), { bubbles: true });
-  // notebook.redefine("myPapersHeight", window.innerHeight * 0.8);
+  notebook.redefine("myPapersHeight", Math.max(window.innerHeight * 0.3, 300));
 }
 window.addEventListener("resize", onResize);
 onResize();
