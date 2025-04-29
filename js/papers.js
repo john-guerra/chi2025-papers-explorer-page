@@ -42,7 +42,7 @@ async function onResize() {
   maxR.dispatchEvent(new Event("input"), { bubbles: true });
   notebook.redefine("myPapersHeight", Math.max(window.innerHeight * 0.3, 300));
 }
-window.addEventListener("resize", onResize);
+// window.addEventListener("resize", onResize);
 onResize();
 
 loadHTMLInto("navigation.html", document.getElementById("navigation"));
